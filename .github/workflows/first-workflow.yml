@@ -22,7 +22,19 @@ jobs:
       - name: Listing the files
         run: ls -la
 
-      - name: Force Failur
-        run: |
-         echo "This step will failure"
-         exit 1
+      - name: Force Failure
+        run:  exit 1
+
+      - name: Run only on failure
+        if: failure()
+        run: echo "This runs because of job is failed"
+
+      - name: Run only on success
+        if: success()
+        run: echo "This runs because the job is succeed"
+
+      - name: Run always
+        run: echo "This is a last Message Commited Changes"
+      
+        
+        
