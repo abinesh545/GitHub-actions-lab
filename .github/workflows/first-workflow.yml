@@ -21,3 +21,8 @@ jobs:
 
       - name: Listing the files
         run: ls -la
+
+      - name: Force Failur
+        run: |
+         echo "This step will failure"
+         exit 1
